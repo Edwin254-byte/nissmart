@@ -83,7 +83,7 @@ This document contains the three critical transaction flows for the Nissmart Mic
 │Interface│
 └─────────┘
 
-** Key Safety Features:**
+**Key Safety Features:**
 - Idempotency: Duplicate requests return same result
 - Atomic: All steps succeed or all fail
 - Balance Update: Single SQL increment operation

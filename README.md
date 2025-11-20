@@ -68,7 +68,9 @@ npm run dev             # Runs on http://localhost:3000
 
 **🎉 Done!** Open http://localhost:3000
 
-📖 **Detailed Setup Guide**: See [docs/SETUP.md](docs/SETUP.md) for step-by-step instructions with troubleshooting.## 🔑 Key Features
+📖 **Detailed Setup Guide**: See [docs/SETUP.md](docs/SETUP.md) for step-by-step instructions with troubleshooting.
+
+## 🔑 Key Features
 
 ### Safety Mechanisms
 

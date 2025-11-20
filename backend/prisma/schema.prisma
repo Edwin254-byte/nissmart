@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id        String   @id @default(uuid())
+    email     String   @unique
+    name      String
+    balance   Float
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    // Relations
+    sentTransfers     Transaction[] @relation("SenderTransactions")
+    receivedTransfers Transaction[] @relation("ReceiverTransactions")
+
+    @@index([email])
+}
+
+enum TransactionType {
+    DEPOSIT
+    TRANSFER
+    WITHDRAWAL
+}
+
+enum TransactionStatus {
+    PENDING
+    PROCESSING
+    COMPLETED
+    FAILED
+}
+
+model Transaction {
+    id             String            @id @default(uuid())
+    type           TransactionType
+    status         TransactionStatus @default(PENDING)
+    amount         Float
+    idempotencyKey String            @unique
+
+    // User relations
+    senderId String?
+    sender   User?   @relation("SenderTransactions", fields: [senderId], references: [id])
+
+    receiverId String?
+    receiver   User?   @relation("ReceiverTransactions", fields: [receiverId], references: [id])
+
+    // Metadata
+    description   String?
+    metadata      Json?
+    failureReason String?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([senderId])
+    @@index([receiverId])
+    @@index([type])
+    @@index([status])
+    @@index([createdAt])
+    @@index([idempotencyKey])
+}

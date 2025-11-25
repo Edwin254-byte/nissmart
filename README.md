@@ -2,6 +2,19 @@
 
 A full-stack platform for managing user accounts, deposits, transfers, and withdrawals with robust transaction safety mechanisms.
 
+## 📹 Video Walkthrough
+
+**[Watch the Demo Video (5 minutes) →](https://www.dropbox.com/scl/fi/d22j8dcjp3rfwfrwvk301/nissmart.mov?rlkey=3wmwykgclprlosjg8zwk8aonm&e=1&st=38fvx68e&dl=0)**
+
+This video demonstrates all key features including:
+
+- User creation and management
+- Deposit transactions with idempotency
+- Internal transfers with atomic safety
+- Withdrawal flow with external system simulation
+- Admin dashboard with system metrics
+- Transaction history and monitoring
+
 ## 🏗️ Architecture
 
 - **Backend**: Node.js + Express + TypeScript + Prisma + PostgreSQL

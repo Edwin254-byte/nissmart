@@ -1,8 +1,8 @@
+import { UIToast } from "@/components/ui-toast";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,18 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         {children}
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+        <UIToast />
       </body>
     </html>
   );
